@@ -45,6 +45,14 @@ export default async function callAPI(request: Request): Promise<Result> {
         return await router.valo(id)
       case path.includes('/zzz'):
         return await router.zzz(Number(id))
+      case path.includes('/eightball'):
+        return await router.eightball(Number(id))
+      case path.includes('/hago'):
+        return await router.hago(Number(id))
+      case path.includes('/dragoncity'):
+        return await router.dragoncity(Number(id))
+      case path.includes('/onepunchman'):
+        return await router.onepunchman(Number(id), Number(server))
       default:
         return {
           success: false,

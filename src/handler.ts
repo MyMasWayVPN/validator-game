@@ -14,7 +14,7 @@ export default async function checkCache(request: Request): Promise<Response> {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': allowedMethod.join(', '),
         'Content-Type': 'application/json; charset=utf-8',
-        'X-Powered-By': '@ihsangan/valid'
+        'X-Powered-By': '@mymasway/validator-game'
       }
     })
   }
