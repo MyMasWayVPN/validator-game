@@ -9,7 +9,7 @@ Lihat perubahan di [commits](https://github.com/ihsangan/valid/commits/main/).
 ## Self Deploy
 Kamu bisa langsung fork aja repo ini, atau bisa tekan tombol dibawah ini (jangan lupa github secrets nya di seting)
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/ihsangan/valid)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mymaswayvpn/validator)
 ## Endpoint
 ```
 https://api.isan.eu.org/nickname
@@ -47,7 +47,7 @@ GET `/hsr?id=PLAYER_ID`
 ### LifeAfter
 GET `/la?id=PLAYER_ID&server=SERVER_NAME`
 
-SERVER_NAME bersifat case-insensitive, untuk daftarnya ada [di sini](https://github.com/ihsangan/valid/blob/main/src/router/la.ts).
+SERVER_NAME bersifat case-insensitive, untuk daftarnya ada [di sini](https://github.com/mymaswayvpn/validator/blob/main/src/router/la.ts).
 
 **Contoh:** [?id=22512309&server=milestone](https://api.isan.eu.org/nickname/la?id=22512309&server=milestone)
 ### Point Blank
