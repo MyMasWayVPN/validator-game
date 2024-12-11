@@ -11,7 +11,7 @@ export default async function hago(id: string): Promise<Result> {
   if (data.confirmationFields.username) {
     return {
       success: true,
-      game: 'Hago_',
+      game: 'Hago',
       id,
       name: data.confirmationFields.username
     }
