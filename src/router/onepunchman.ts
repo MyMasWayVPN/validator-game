@@ -13,6 +13,6 @@ export default async function onepunchman(id: string, zone: number): Promise<Res
     game: 'Mobile Legends: Bang Bang',
     id,
     server: zone,
-    name:data.confirmationFields.username
+    name:data.price.userNameGame
   }
 }
