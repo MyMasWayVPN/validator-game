@@ -1,7 +1,7 @@
-import { endpoint, headers, Result } from '../utils'
+import { endapigame, hapigames, Result } from '../utils'
 
 export default async function onepunchman(id: string, zone: number): Promise<Result> {
-  const body = `voucherPricePoint.id=308472&voucherPricePoint.price=10890.0000&voucherPricePoint.variablePrice=0&user.userId=${id}&user.zoneId=${zone}&voucherTypeName=ONE_PUNCH_MAN&shopLang=id_ID`
+  const body = `productId=97&itemId=917&product_ref=REG&product_ref_denom=REG&catalogId=2071&paymentId=5140&gameId=${id}&zoneId=${zone}&campaignUrl=`
   const response = await fetch(endpoint, {
     method: 'POST',
     headers,
