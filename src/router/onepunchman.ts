@@ -8,17 +8,11 @@ export default async function onepunchman(id: number, zone: number): Promise<Res
     body
   })
   const data = await response.json()
-  if (data.confirmationFields.username) {
-    return {
-      success: true,
-      game: 'One Punch Man',
-      id,
-      name: data.confirmationFields.username
-    }
-  } else {
-    return {
-      success: false,
-      message: 'Not found'
-    }
+  return {
+    success: true,
+    game: 'Mobile Legends: Bang Bang',
+    id,
+    server: zone,
+    name:data.confirmationFields.username
   }
 }
