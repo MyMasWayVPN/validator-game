@@ -84,6 +84,27 @@ Dibawah ini adalah daftar game yang hanya bisa dipakai menggunakan ID yang terda
 GET `/aov?id=PLAYER_OR_OPEN_ID`
 
 **Contoh:** [124590895269021](https://api.cekid-game.me/nickname/aov?id=124590895269021)
+
+### One Punch Man
+GET `/onepunchman?id=PLAYER_ID&server=ZONE_ID`
+
+**Contoh:** [124590895269021](https://api.cekid-game.me/nickname/onepunchman?id=444470_310001&server=310001)
+
+### Hago
+GET `/hago?id=PLAYER_ID`
+
+**Contoh:** [124590895269021](https://api.cekid-game.me/nickname/haho?id=31148107)
+
+### Dragon City
+GET `/dragoncity?id=PLAYER_ID`
+
+**Contoh:** [124590895269021](https://api.cekid-game.me/nickname/dragoncity?id=3281168132375957269)
+
+### 8 Eight Ball Pool
+GET `/eightball?id=PLAYER_ID`
+
+**Contoh:** [124590895269021](https://api.cekid-game.me/nickname/eightball?id=2180533717)
+
 ### Call Of Duty
 GET `/cod?id=PLAYER_OR_OPEN_ID`
 
