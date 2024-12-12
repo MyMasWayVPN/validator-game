@@ -4,10 +4,10 @@ export default async function onepunchman(id: string, zone: number): Promise<Res
   const body = `productId=97&itemId=917&product_ref=REG&product_ref_denom=REG&catalogId=2071&paymentId=5140&gameId=${id}&zoneId=${zone}&campaignUrl=`
   const response = await fetch(endpoint, {
     method: 'POST',
-    headers,
+    hapigames,
     body
   })
-  const data = await response.json()
+  const data = await response.text()
   return {
     success: true,
     game: 'Mobile Legends: Bang Bang',
