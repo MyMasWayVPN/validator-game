@@ -11,7 +11,7 @@ export function timeNow(): number {
 }
 
 export const headers = new Headers({
-  'Content-Type': 'none'
+  'Content-Type': 'application/x-www-form-urlencoded'
 })
 
 export interface Result {
