@@ -1,41 +1,76 @@
 import { endpoint, headers, Result } from '../utils'
 
-var myHeaders = new Headers();
-myHeaders.append("User-Agent", "Apidog/1.0.0 (https://apidog.com)");
-myHeaders.append("Accept", "*/*");
-myHeaders.append("Host", "api.duniagames.co.id");
-myHeaders.append("Connection", "keep-alive");
+const API_CODASHOP = 'https://order-sg.codashop.com/initPayment.action';
 
+function ONE_PUNCH_MAN(id: string, otherid: string = ''): Promise<Result> {
+    const postData = buildBodys(77832, 5500000.0, 0, id, otherid, 'ONE_PUNCH_MAN', '', 'id_ID', '', '');
+    return Request(API_CODASHOP, postData, 'codashop')
+        .then((response: any) => {
+            const parsedResponse = JSON.parse(response);
 
+            if (parsedResponse.RESULT_CODE && parsedResponse.RESULT_CODE === '10001') {
+                return { status: 429, msg: 'Too many attempts, plz wait 5 seconds' };
+            } else {
+                if (parsedResponse.success) {
+                    return {
+                        status: true,
+                        nickname: decodeURIComponent(parsedResponse.confirmationFields.username)
+                    };
+                } else {
+                    return { status: 400, msg: 'Invalid ID or Server' };
+                }
+            }
+        })
+        .catch((error: any) => {
+            return { status: 500, msg: 'Internal Server Error', error };
+        });
+}
 
-export default async function onepunchman(id: string, zone: string = ''): Promise<Result> {
-    const API_DUNIAGAMES = 'https://api.duniagames.co.id/api/transaction/v1/top-up/inquiry/store';
-    const body = "productId=97&itemId=917&product_ref=REG&product_ref_denom=REG&catalogId=2071&paymentId=5140&gameId=${id}&zoneId=${zone}&campaignUrl="
-    try {
-        // Mengirim permintaan HTTP ke API_DANCINGIDOL
-        const response = await fetch(`${API_DUNIAGAMES}${body}`, {
+// Helper functions
+function buildBodys(
+    voucherPricePoint.id: number,
+    voucherPricePoint.price: number,
+    voucherPricePoint.variablePrice: number,
+    user.userId: string,
+    user.zoneId: string,
+    voucherTypeName: string,
+    lvtId: string,
+    shopLang: string,
+    dynamicSkuToken: string,
+    pricePointDynamicSkuToken: string,
+    voucherTypeId: string
+): any {
+    return {
+        voucherPricePoint.id,
+        voucherPricePoint.price,
+        voucherPricePoint.variablePrice,
+        user.userId,
+        user.zoneId,
+        voucherTypeName,
+        lvtId,
+        shopLang,
+        dynamicSkuToken,
+        pricePointDynamicSkuToken,
+        voucherTypeId,
+    };
+}
+
+function Request(url: string, body: any, serviceName: string): Promise<Result> {
+    return new Promise((resolve, reject) => {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Tambahkan header lain jika diperlukan
-            }
-        });
-
-        if (!response.ok) {
-            return JSON.stringify({ status: 400, msg: 'Invalid ID' });
-        }
-
-        const responseData = await response.json();
-
-        // Memeriksa apakah data 'rolename' tersedia
-        if (response.data.status.message === 'succes') {
-            return JSON.stringify({ status: true, nickname: response.data.data.price.userNameGame });
-        } else {
-            return JSON.stringify({ status: false, msg: 'Invalid ID' });
-        }
-    } catch (error) {
-        // Penanganan kesalahan
-        console.error('Error fetching data:', error);
-        return JSON.stringify({ status: 500, msg: 'Internal Server Error' });
-    }
+            },
+            body: JSON.stringify(body),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    reject(`Error in ${serviceName} service`);
+                }
+                return response.text();
+            })
+            .then((data) => resolve(data))
+            .catch((error) => reject(error));
+    });
 }
