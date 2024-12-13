@@ -14,7 +14,7 @@ export default async function serveResult(request: Request): Promise<Response> {
   if (result.message === 'Bad request') {
     code = 400
   }
-  if (result.message === 'Not found') {
+  if (result.message === 'Tidak Ada') {
     code = 404
   }
   const response = new Response(JSON.stringify(result), {
