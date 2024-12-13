@@ -13,22 +13,23 @@ export default async function onepunchman(id: number, zone: number): Promise<Res
             product_ref: "REG",
             product_ref_denom: "REG"
         });
-  const headers1 = {
+  private async request(url: string, postData: string): Promise<Response> {
+        const headers1 = {
             'Host': 'api.duniagames.co.id',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
             'Content-Type': 'application/json'
         };
+
   const response = await fetch(API_URL, {
     method: 'POST',
     headers1,
     payload
-  })
-  const data = await response.json()
-  return {
-    success: true,
-    game: 'Mobile Legends: Bang Bang',
-    id,
-    server: zone,
-    name:data.data.userNameGame
+  });
+    const data = await response.json();
+    if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+  return dataata.userNameGame;
+
   }
 }
