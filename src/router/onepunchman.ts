@@ -6,10 +6,7 @@ export default async function onepunchman(id: number, zone: number): Promise<Res
     body
   })
   const data = await response.json()
-  if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-else if (data.confirmationFields.username) {
+if (data.success == true) {
     return {
       success: true,
       game: 'ONE_PUNCH_MAN',
