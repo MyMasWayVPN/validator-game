@@ -8,18 +8,10 @@ export default async function undawn(id: number): Promise<Result> {
     body
   })
   const data = await response.json()
-  if (data.confirmationFields.username) {
-    return {
-      success: true,
-      game: 'UNDAWN',
-      id,
-      name: data.confirmationFields.username
-    }
-  }
-  else {
-    return {
-      success: false,
-      message: 'Not found'
-    }
+  return {
+    success: true,
+    game: 'UNDAWN',
+    id,
+    name: data.confirmationFields.roles[0].role
   }
 }
