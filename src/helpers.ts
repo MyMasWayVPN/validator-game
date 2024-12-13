@@ -11,7 +11,7 @@ export default async function serveResult(request: Request): Promise<Response> {
       result.name = decodeURIComponent(result.name)
     }
   }
-  if (result.message === 'Bad request') {
+  if (result.message === 'Permintaan Gagal') {
     code = 400
   }
   if (result.message === 'Tidak Ada') {
