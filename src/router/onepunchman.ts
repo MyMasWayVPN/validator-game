@@ -1,4 +1,4 @@
-export default async function hi(id: number): Promise<Result> {
+export default async function onepunchman(id: number): Promise<Result> {
   const body = `voucherPricePoint.id=308475&voucherPricePoint.price=44000&voucherPricePoint.variablePrice=0&user.userId=${id}&user.zoneId=&voucherTypeName=ONE_PUNCH_MAN&shopLang=id_ID`
   const response = await fetch(endpoint, {
     method: 'POST',
