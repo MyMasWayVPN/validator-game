@@ -8,7 +8,7 @@ export default async function dragoncity(id: number): Promise<Result> {
     body
   })
   const data = await response.json()
-  if (data.confirmationFields.username) {
+  if (data.success == true) {
     return {
       success: true,
       game: 'Dragon City',
