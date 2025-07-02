@@ -9,7 +9,7 @@ Lihat perubahan di [commits](https://github.com/ihsangan/valid/commits/main/).
 ## Self Deploy
 Kamu bisa langsung fork aja repo ini, atau bisa tekan tombol dibawah ini (jangan lupa github secrets nya di seting)
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mymaswayvpn/validator)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mymaswayvpn/validator-game)
 ## Endpoint
 ```
 https://api.cekid-game.me/nickname
